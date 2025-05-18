@@ -1,0 +1,586 @@
+:root {
+  --primary-color: #5c6bc0;
+  --secondary-color: #8e99f3;
+  --accent-color: #26a69a;
+  --light-color: #f5f5f5;
+  --dark-color: #333;
+  --error-color: #f44336;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f2f5;
+  color: var(--dark-color);
+  line-height: 1.6;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.app-header h1 {
+  color: var(--primary-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.resources-button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.resources-button:hover {
+  background-color: #2bbbad;
+  transform: translateY(-2px);
+}
+
+.app-main {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.resources-panel {
+  width: 300px;
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  height: fit-content;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.resources-panel h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resources-list {
+  list-style: none;
+}
+
+.resource-item {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.resource-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.resource-item h3 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.resource-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 0.5rem;
+  transition: var(--transition);
+}
+
+.resource-item a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+.chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.messages-container {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 70vh;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.user-message {
+  justify-content: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  padding: 0.8rem 1.2rem;
+  border-radius: 18px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.user-message .message-bubble {
+  background-color: var(--primary-color);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+.bot-message .message-bubble {
+  background-color: #e9e9eb;
+  color: var(--dark-color);
+  border-bottom-left-radius: 4px;
+}
+
+.typing {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  width: 4rem;
+  justify-content: center;
+}
+
+.typing-dot {
+  background-color: #999;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  animation: typingAnimation 1.5s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.input-form {
+  display: flex;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  gap: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  outline: none;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.message-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.2);
+}
+
+.send-button {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.send-button:hover:not(:disabled) {
+  background-color: var(--secondary-color);
+}
+
+.send-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.app-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    flex-direction: column;
+  }
+  
+  .resources-panel {
+    width: 100%;
+    max-height: 300px;
+  }
+  
+  .message-bubble {
+    max-width: 85%;
+  }
+}
+
+/* Header Buttons */
+.header-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.wellness-button {
+  background-color: #7986cb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.wellness-button:hover {
+  background-color: #5c6bc0;
+  transform: translateY(-2px);
+}
+
+/* Wellness Panel */
+.wellness-panel {
+  width: 350px;
+  background-color: white;
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  height: fit-content;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.wellness-panel h2 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.wellness-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Mood Tracker Styles */
+.mood-tracker {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: var(--radius);
+  border-left: 4px solid #7986cb;
+}
+
+.mood-tracker h3 {
+  color: #5c6bc0;
+  margin-bottom: 1rem;
+}
+
+.mood-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.mood-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mood-button.selected {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 2px rgba(92, 107, 192, 0.3);
+  transform: scale(1.1);
+}
+
+.mood-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.mood-label {
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.mood-history {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #ccc;
+}
+
+.mood-history h4 {
+  color: #5c6bc0;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+.mood-history-chart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.mood-history-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.mood-history-emoji {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+}
+
+.mood-history-date {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+/* Breathing Exercise Styles */
+.breathing-exercise {
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: var(--radius);
+  border-left: 4px solid #26a69a;
+}
+
+.breathing-exercise h3 {
+  color: #26a69a;
+  margin-bottom: 0.5rem;
+}
+
+.breathing-desc {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  color: #666;
+}
+
+.breathing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  width: 100%;
+}
+
+.breathing-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 1s ease;
+  cursor: pointer;
+}
+
+.breathing-text {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.breathing-instructions {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.breathing-progress {
+  width: 100%;
+  height: 5px;
+  background-color: #e0e0e0;
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.breathing-progress-bar {
+  height: 100%;
+  background-color: #26a69a;
+  transition: width 1s linear;
+}
+
+.breathing-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.breathing-button {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.breathing-button.start {
+  background-color: #26a69a;
+  color: white;
+}
+
+.breathing-button.stop {
+  background-color: #ef5350;
+  color: white;
+}
+
+.breathing-button:hover {
+  transform: translateY(-2px);
+}
+
+.breathing-stats {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Responsive styles for wellness features */
+@media (max-width: 768px) {
+  .wellness-panel {
+    width: 100%;
+    max-height: 400px;
+    margin-bottom: 1rem;
+  }
+  
+  .mood-options {
+    justify-content: center;
+  }
+}
