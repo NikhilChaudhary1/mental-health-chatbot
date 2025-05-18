@@ -1,6 +1,6 @@
 # MindfulChat - AI Mental Health Support Chatbot
 
-MindfulChat is an AI-powered mental health support chatbot designed to provide empathetic conversations, coping strategies, and mental health resources. It uses LLaMA Phi-3 to generate supportive and helpful responses.
+MindfulChat is an AI-powered mental health support chatbot designed to provide empathetic conversations, coping strategies, and mental health resources. It uses Ollama Phi to generate supportive and helpful responses.
 
 ## Features
 
@@ -16,7 +16,7 @@ MindfulChat is an AI-powered mental health support chatbot designed to provide e
 
 - **Frontend**: React, Vite
 - **Backend**: Node.js, Express
-- **AI Integration**: LLaMA Phi-3
+- **AI Integration**: Ollama Phi
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ MindfulChat is an AI-powered mental health support chatbot designed to provide e
 
 - Node.js (v14+)
 - npm or yarn
-- LLaMA Phi-3 access or API key
+- Ollama with Phi model installed
 
 ### Installation
 
@@ -45,7 +45,8 @@ npm install
 3. Set up environment variables:
 
    - Create a `.env` file in the backend directory
-   - Add your LLaMA Phi-3 API key: `LLAMA_API_KEY=your_llama_phi3_api_key_here`
+   - Configure Ollama host (optional): `OLLAMA_HOST=http://localhost:11434`
+   - Set model name: `OLLAMA_MODEL=phi`
    - Set port (optional): `PORT=5000`
 
 4. Install frontend dependencies:
@@ -55,12 +56,18 @@ cd ../frontend
 npm install
 ```
 
-### Setting up LLaMA Phi-3
+### Setting up Ollama Phi
 
-1. Access LLaMA Phi-3 through your preferred provider or API service
-2. Obtain your API key or access credentials
-3. Add the API key to your `.env` file
-4. Ensure you have the necessary packages installed to interact with the LLaMA Phi-3 model
+1. Install Ollama from https://ollama.com/
+2. Pull the Phi model with the following command:
+   ```
+   ollama pull phi
+   ```
+3. Verify the model is installed with:
+   ```
+   ollama list
+   ```
+4. Ensure Ollama is running before starting the application
 
 ### Running the Application
 
@@ -90,5 +97,6 @@ MIT
 
 ## Acknowledgements
 
-- Microsoft and Meta for developing the LLaMA Phi-3 model
+- Microsoft for developing the Phi model
+- Ollama for providing easy access to open-source models
 - The mental health community for inspiration and guidance
