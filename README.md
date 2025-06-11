@@ -5,10 +5,8 @@ MindfulChat is an AI-powered mental health support chatbot designed to provide e
 ## Features
 
 - 🧠 AI-powered mental health conversations
-- 🤗 Empathetic and supportive responses
 - 📚 Access to mental health resources
 - 💬 Real-time chat interface
-- 🔒 Privacy-focused design
 - 😌 Mood tracking functionality
 - 🧘‍♂️ Interactive breathing exercises
 
@@ -86,17 +84,3 @@ npm run dev
 ```
 
 3. Open your browser and navigate to `http://localhost:5173`
-
-## Important Note
-
-This chatbot is not a replacement for professional mental health services. If you or someone you know is experiencing a mental health emergency, please contact a mental health professional or a crisis hotline immediately.
-
-## License
-
-MIT
-
-## Acknowledgements
-
-- Microsoft for developing the Phi model
-- Ollama for providing easy access to open-source models
-- The mental health community for inspiration and guidance
